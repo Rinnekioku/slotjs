@@ -102,6 +102,14 @@
                 if (event.origin === 'https://web.telegram.org') {
                     iFrameStyle.innerHTML = dataParsed.eventData;
                     console.log(dataParsed.eventData)
+                    const fullScreen = `
+                    html {
+                        width: 90%;
+                        height: 70%
+                    }
+                    `;
+
+                    iFrameStyle.innerHTML = `iFrameStyle.innerHTML ${fullScreen}`
                 }
                 } else if (dataParsed.eventType == 'reload_iframe') {
                 try {
