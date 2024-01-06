@@ -83,51 +83,7 @@
 
     <!-- <script type="application/ld+json"></script> -->
 
-    <script>
-        var isIframe = false, iFrameStyle;
-        try {
-            isIframe = (window.parent != null && window != window.parent);
-            if (isIframe) {
-            window.addEventListener('message', function (event) {
-                if (event.source !== window.parent) return;
-                try {
-                var dataParsed = JSON.parse(event.data);
-                } catch (e) {
-                return;
-                }
-                if (!dataParsed || !dataParsed.eventType) {
-                return;
-                }
-                if (dataParsed.eventType == 'set_custom_style') {
-                if (event.origin === 'https://web.telegram.org') {
-                    iFrameStyle.innerHTML = dataParsed.eventData;
-                    console.log(dataParsed.eventData)
-                    const fullScreen = `
-                    html {
-                        width: 90%;
-                        height: 70%
-                    }
-                    `;
-
-                    iFrameStyle.innerHTML = `iFrameStyle.innerHTML ${fullScreen}`
-                }
-                } else if (dataParsed.eventType == 'reload_iframe') {
-                try {
-                    window.parent.postMessage(JSON.stringify({eventType: 'iframe_will_reload'}), '*');
-                } catch (e) {}
-                location.reload();
-                } else {
-                receiveEvent(dataParsed.eventType, dataParsed.eventData);
-                }
-            });
-            iFrameStyle = document.createElement('style');
-            document.head.appendChild(iFrameStyle);
-            try {
-                window.parent.postMessage(JSON.stringify({eventType: 'iframe_ready', eventData: {reload_supported: true}}), '*');
-            } catch (e) {}
-            }
-        } catch (e) {}
-    </script>
+    <script src="https://telegram.org/js/games.js"></script>
 
 </head>
 
