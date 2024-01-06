@@ -161,11 +161,6 @@ export class App {
         });
 
         */
-
-        setTimeout(() => {
-            window.innerWidth = 1028;
-            window.innerHeight = 720;
-        });
     }
 
     handleUseCoin() {
