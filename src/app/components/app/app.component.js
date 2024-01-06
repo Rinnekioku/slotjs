@@ -162,7 +162,7 @@ export class App {
 
         */
 
-
+        window.Telegram.WebApp.expand();
     }
 
     handleUseCoin() {
