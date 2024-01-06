@@ -162,7 +162,7 @@ export class App {
 
         */
 
-        window.Telegram.WebApp.expand();
+        window.Telegram.WebView.postEvent('web_app_expand', () => {}, { width: 1280, height: 720, is_expanded: true, is_state_stable: true });
     }
 
     handleUseCoin() {
